@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="customersCtrl">
+<table id ='myTable'>
+<tr ng-repeat="x in names">
+<td>{{ x }}</td>
+</tr>
+</table>
+  <div ng-include="'myTable'"></div>
+</div>
+
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope) {
+  $scope.names = ['xyz','abc','123']
+});
+</script>
+
+<p>The HTML, and AngularJS code, for this table are located in the file "myTable.htm".</p>
+
+</body>
+</html>

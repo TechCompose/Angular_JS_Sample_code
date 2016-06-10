@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<p>The time is:</p>
+
+<h1>{{theTime}}</h1>
+<h2>{{myHeader}}</h2>
+</div>
+
+<p>The $interval service runs a function every specified millisecond.</p>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $interval, $timeout) {
+  $scope.theTime = new Date().toLocaleTimeString();
+  $interval(function () {
+      $scope.theTime = new Date().toLocaleTimeString();
+      change_msg1();
+  }, 1000);
+  $scope.myHeader = "Hello World!";
+  $scope.change_msg1 = $timeout(function () {
+       $scope.myHeader = "How are you today?";
+   }, 2000);
+});
+</script>
+
+</body>
+</html>
